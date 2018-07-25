@@ -1,0 +1,22 @@
+{
+  "name": "opinion.watchtv",
+  "description": "Program for monitoring ibeacons",
+  "license": "MIT",
+  "readme": "\"Opinion.WatchTV\"",
+  "nativescript": {
+    "id": "ua.com.opinion.watchtv"
+  },
+  "dependencies": {
+    "nativescript-theme-core": "^1.0.4",
+    "nativescript-vue": "^1.3.1",
+    "tns-core-modules": "~3.4.1",
+    "nativescript-ui-sidedrawer": "^4.1.1",
+    "nativescript-fonticon": "^1.1.1"
+  },
+  "devDependencies": {
+    "babel-traverse": "6.26.0",
+    "babel-types": "6.26.0",
+    "babylon": "6.18.0",
+    "lazy": "1.0.11"
+  }
+}
