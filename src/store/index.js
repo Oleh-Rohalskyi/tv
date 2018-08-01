@@ -1,16 +1,15 @@
 import Vue from 'nativescript-vue';
 import Vuex from 'vuex';
 
-import statuses from './modules/statuses';
+import status from './modules/status';
 
 Vue.use(Vuex);
 
 const debug = process.env.NODE_ENV !== 'production';
 
 const store = new Vuex.Store({
-
   modules: {
-    statuses,
+    status,
   },
   strict: debug,
 });

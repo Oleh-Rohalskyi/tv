@@ -18,7 +18,7 @@
         <StackLayout ~mainContent >
             <StackLayout class="main-content">
                 <Permissions></Permissions>
-                <Status></Status>
+                <Status @:try-connect-ibeacon="CONNECT_IBEACON" @:try-on-bluetooth="TURN_ON_BLUETOOTH"></Status>
                  <router-view />
             </StackLayout>
         </StackLayout>
@@ -46,7 +46,13 @@ export default {
     },
     toggleDrawerState() {
       this.$refs.drawer.nativeView.toggleDrawerState();
-    }
+    },
+    CONNECT_IBEACON() {
+        
+    },
+    TURN_ON_BLUETOOTH() {
+        
+    },
   },
   data() {
     return {

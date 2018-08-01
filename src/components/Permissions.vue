@@ -1,31 +1,43 @@
 <template>
   <StackLayout>
+    <Label class="status-title" :text="'ACCESS_COARSE_LOCATION: '+ACCESS_COARSE_LOCATION" />
+    <Label class="status-title" :text="'ACCESS_FINE_LOCATION: '+ACCESS_FINE_LOCATION" />
+    <Label class="status-title" :text="'BLUETOOTH: '+BLUETOOTH" />
+    <Label class="status-title" :text="'BLUETOOTH_ADMIN: '+BLUETOOTH_ADMIN" />
   </StackLayout>
 </template>
 
 <script>
   let permissions = require( "nativescript-permissions" );
+  import { mapState , mapMutations } from 'vuex';
 
+  console.log(mapState)
   export default {
     methods: {
-      ACCESS_COARSE_LOCATION() {
-        return permissions.requestPermission.bind(permissions,android.Manifest.permission.ACCESS_COARSE_LOCATION, "Надо доступ к геолокации")
-      },
-      ACCESS_FINE_LOCATION() {
-        return permissions.requestPermission.bind(permissions,android.Manifest.permission.ACCESS_FINE_LOCATION, "Надо доступ к геолокации как админ")
-      },
-      BLUETOOTH() {
-        return permissions.requestPermission.bind(permissions,android.Manifest.permission.BLUETOOTH, "Надо доступ к bluetooth")
-      },
-      BLUETOOTH_ADMIN() {
-        return permissions.requestPermission.bind(permissions,android.Manifest.permission.BLUETOOTH_ADMIN, "Надо доступ к bluetooth как админ")
-      }
+      ...mapMutations({
+        change_ACCESS_COARSE_LOCATION_status: 'status/ACCESS_COARSE_LOCATION',
+        change_ACCESS_FINE_LOCATION_status: 'status/ACCESS_FINE_LOCATION',
+        change_BLUETOOTH_LOCATION_status: 'status/BLUETOOTH_LOCATION',
+        change_ACCESS_BLUETOOTH_ADMIN_status: 'status/ACCESS_COARSE_LOCATION',
+      })
+    },
+    computed: {
+      ...mapState({
+         ACCESS_COARSE_LOCATION: state => state.status["ACCESS_COARSE_LOCATION"],
+         ACCESS_FINE_LOCATION: state => state.status["ACCESS_FINE_LOCATION"],
+         BLUETOOTH: state => state.status["BLUETOOTH"],
+         BLUETOOTH_ADMIN: state => state.status["BLUETOOTH_ADMIN"]
+      })
     },
     created() {
-      this.ACCESS_COARSE_LOCATION();
-      тчис.ACCESS_FINE_LOCATION();
-      this.BLUETOOTH();
-      this.BLUETOOTH_ADMIN();
+      permissions.requestPermission( 
+        android.Manifest.permission.ACCESS_COARSE_LOCATION,
+        "ACCESS_COARSE_LOCATION"
+      ).then((res)=>{
+        this.change_ACCESS_COARSE_LOCATION_status(true)
+      }).catch(()=>{
+        this.change_ACCESS_COARSE_LOCATION_status(false)
+      })
     }
   };
 </script>
