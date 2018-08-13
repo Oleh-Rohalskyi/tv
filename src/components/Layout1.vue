@@ -16,29 +16,38 @@
             </StackLayout>
         </StackLayout>
         <StackLayout ~mainContent >
+          <ScrollView orientation="vertical" scrollBarIndicatorVisible="true">
             <StackLayout class="main-content">
                 <Permissions></Permissions>
-                <Status @:try-connect-ibeacon="CONNECT_IBEACON" @:try-on-bluetooth="TURN_ON_BLUETOOTH"></Status>
-                 <router-view />
+                <Geolocation></Geolocation>
+                <Bluetooth></Bluetooth>
+                <Ibeacon></Ibeacon>
             </StackLayout>
+          </ScrollView>
         </StackLayout>
     </RadSideDrawer>
   </Page>
 </template>
 
 <script>
-import Status from "./Status";
+import Bluetooth from "./Bluetooth";
 import Permissions from "./Permissions";
-let toIcon = (unicode) => {
-  
-}
+import Ibeacon from "./Ibeacon";
+import Geolocation from "./Geolocation";
+// import { mapState, mapMutations } from "vuex";
+
 export default {
   components: {
-    Status,
-    Permissions
+    Bluetooth,
+    Permissions,
+    Ibeacon,
+    Geolocation
+  },
+  computed: {
+      
   },
   created() {
-   
+
   },
   methods: {
     openDrawer() {
@@ -46,13 +55,7 @@ export default {
     },
     toggleDrawerState() {
       this.$refs.drawer.nativeView.toggleDrawerState();
-    },
-    CONNECT_IBEACON() {
-        
-    },
-    TURN_ON_BLUETOOTH() {
-        
-    },
+    }
   },
   data() {
     return {
@@ -66,7 +69,31 @@ export default {
 };
 </script>
 
-<style scoped>
+<style lang="scss">
+  .status-title {
+    font-size: 12;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-left: 25px;
+    margin-right: 25px;
+    border-bottom-width: 1px;
+    border-bottom-color: #ccc;
+    &_with-button {
+      height: 110px;
+    }
+  }
+  .button-default {
+      font-size: 10;
+  //     margin: 10px;
+      border-color: #f57c00; 
+      background-color: #ad1457; 
+      color: #fff;
+      &_info {
+        background-color: #e65100; 
+        color: #fff;
+      }
+  }
 
 .sideStackLayout {
   background-color: #fff;
@@ -101,7 +128,7 @@ export default {
     text-align: left;
 }
 .align-right {
-    padding-right: 20px;
+    padding-right: 40px;
     text-align: right;
 }
 .main-content {

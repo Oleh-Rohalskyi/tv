@@ -4,11 +4,13 @@ const state = {
   ACCESS_FINE_LOCATION: false,
   BLUETOOTH: false,
   BLUETOOTH_ADMIN: false,
-  IBECON_IN_REGION: false,
+  IBEACON_AUTHORIZATION: false,
+  GEOLOCATION_ANABLED: false,
+  IBEACON_IN_REGION: false,
 };
 
 const mutations = {
-  BLUETOOTH_POWER (state, status) {
+  BLUETOOTH_POWER(state, status) {
     state.BLUETOOTH_POWER = status;
   },
   ACCESS_COARSE_LOCATION (state,status) {
@@ -23,8 +25,14 @@ const mutations = {
   BLUETOOTH_ADMIN (state,status) {
     state.BLUETOOTH_ADMIN = status;
   },
-  IBECON_IN_REGION (state,status) {
-    state.IBECON_IN_REGION = status;
+  IBEACON_AUTHORIZATION (state,status) {
+    state.IBEACON_AUTHORIZATION = status;
+  },
+  GEOLOCATION_ANABLED (state,status) {
+    state.GEOLOCATION_ANABLED = status;
+  },
+  IBEACON_IN_REGION (state,status) {
+    state.IBEACON_IN_REGION = status;
   },
 };
 

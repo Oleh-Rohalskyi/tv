@@ -15,15 +15,8 @@ const router = new VueRouter({
       meta: {
         title: 'layout1',
       },
-      childrens: {
-        path: 'ibeacon',
-        component: ibeacon,
-        meta: {
-          title: 'Home',
-        },
-      }
     },
-    {path: '*', redirect: '/' },
+    { path: '*', redirect: '/' },
   ],
 });
 

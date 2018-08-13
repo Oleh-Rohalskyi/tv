@@ -18,12 +18,16 @@
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0",
+    "nativescript-bluetooth": "^1.3.1",
     "nativescript-fonticon": "^1.1.1",
+    "nativescript-geolocation": "^4.3.0",
+    "nativescript-ibeacon": "^0.8.1",
     "nativescript-permissions": "^1.2.3",
     "nativescript-theme-core": "^1.0.4",
     "nativescript-ui-sidedrawer": "^4.1.1",
     "nativescript-vue": "^1.3.1",
     "tns-core-modules": "4.2.0-2018-06-14-04",
+    "utils": "^0.3.1",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
   },
